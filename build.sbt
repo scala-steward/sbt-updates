@@ -1,4 +1,4 @@
-sbtPlugin := true
+enablePlugins(SbtPlugin)
 
 name := "sbt-updates"
 organization := "com.timushev.sbt"
@@ -9,9 +9,9 @@ libraryDependencies ++= Seq(
   "org.scalatest" %% "scalatest" % "3.0.5" % "test"
 )
 
-scriptedLaunchOpts += s"-Dsbt.updates.version=${version.value}"
+scriptedLaunchOpts ++= Seq("-Xmx256m", s"-Dsbt.updates.version=${version.value}")
 
-crossSbtVersions := Seq("0.13.16", "1.1.5")
+crossSbtVersions := Seq("0.13.17", "1.2.6")
 
 enablePlugins(GitVersioning)
 git.useGitDescribe := true

@@ -15,7 +15,8 @@ TaskKey[Unit]("check") := {
         sys.error(s"Wrong update versions: $versions")
       true
     case other =>
-      sys.error(s"Wrong update key: $other")
+      if (true) // SBT bug workaround: The setting/task `X / y` is not being invoked inside the task definition
+        sys.error(s"Wrong update key: $other")
       false
   }
   if (!found)

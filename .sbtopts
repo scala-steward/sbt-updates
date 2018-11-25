@@ -1,0 +1,2 @@
+# Force Log4J to not use a thread context classloader otherwise it throws a CCE, remove after SBT update
+-Dlog4j.ignoreTCL=true
